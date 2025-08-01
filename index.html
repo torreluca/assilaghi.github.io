@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASSILAGHI SAS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Logo di sfondo */
+        .background-logo {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60vw;
+            height: auto;
+            opacity: 0.05;
+            z-index: 1;
+            pointer-events: none;
+            object-fit: contain;
+        }
+
+        /* Container principale */
+        .container {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        /* Header con logo piccolo */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .logo-small {
+            width: 120px;
+            height: auto;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+            object-fit: contain;
+        }
+
+        .company-name {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1e4a72;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            letter-spacing: 1px;
+        }
+
+        .company-subtitle {
+            font-size: 1.2rem;
+            color: #5a7a9a;
+            font-weight: 300;
+        }
+
+        /* Card delle sedi */
+        .offices-container {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1000px;
+        }
+
+        .office-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            flex: 1;
+            min-width: 320px;
+            max-width: 400px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .office-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1e4a72 0%, #4a90e2 100%);
+        }
+
+        .office-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .office-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1e4a72;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .office-icon {
+            width: 24px;
+            height: 24px;
+            fill: #4a90e2;
+        }
+
+        .office-info {
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .address {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .phone {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #1e4a72;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .phone:hover {
+            color: #4a90e2;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .company-name {
+                font-size: 2rem;
+            }
+            
+            .offices-container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .office-card {
+                min-width: 280px;
+                padding: 2rem;
+            }
+            
+            .background-logo {
+                width: 80vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .company-name {
+                font-size: 1.5rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .office-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Animazioni */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container > * {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .office-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo di sfondo -->
+    <img class="background-logo" src="logo-assilaghi.png" alt="ASSILAGHI Logo Background" onerror="this.style.display='none'">
+
+    <div class="container">
+        <div class="header">
+            <img class="logo-small" src="logo-assilaghi.png" alt="ASSILAGHI Logo" onerror="this.style.display='none'">
+            
+            <h1 class="company-name">ASSILAGHI SAS</h1>
+            <p class="company-subtitle">DI LUCA ED ELEONORA TORRE</p>
+        </div>
+
+        <div class="offices-container">
+            <div class="office-card" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Via+IV+Novembre+25+Gavirate+Italy', '_blank')">
+                <h2 class="office-title">
+                    <svg class="office-icon" viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    Sede di Gavirate
+                </h2>
+                <div class="office-info">
+                    <div class="address">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#4a90e2">
+                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                        </svg>
+                        Via IV Novembre 25<br>Gavirate
+                    </div>
+                    <div class="phone">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#1e4a72">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                        </svg>
+                        0332.744083
+                    </div>
+                </div>
+            </div>
+
+            <div class="office-card" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Via+Vittorio+Veneto+19+Luino+Italy', '_blank')">
+                <h2 class="office-title">
+                    <svg class="office-icon" viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    Sede di Luino
+                </h2>
+                <div class="office-info">
+                    <div class="address">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#4a90e2">
+                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                        </svg>
+                        Via Vittorio Veneto 19<br>Luino
+                    </div>
+                    <div class="phone">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#1e4a72">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                        </svg>
+                        0332.510460
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
